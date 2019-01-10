@@ -25,7 +25,6 @@ class Watcher extends EventEmitter {
         this.endpoint = config.endpoint;
         this.interval = config.interval;
         this.options = {};
-
     }
     
     public async watch() {
@@ -36,7 +35,7 @@ class Watcher extends EventEmitter {
         setInterval(this.fetchEndpoint.bind(this), this.interval);
     }
 
-    async fetchEndpoint() {
+    public async fetchEndpoint() {
         this.emit('pre');
 
         await request(this.endpoint, this.options, (error, response, body) => {

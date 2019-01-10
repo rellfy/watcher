@@ -14,6 +14,11 @@ class Database {
      * Set data object for key
      */
     public set DataKey(pair: KeyValuePair) {
+        if (this.data[pair.key] != null && Array.isArray(this.data[pair.key]) && pair.value != null) {
+            console.log('ALERT: Use Watcher.clearDataArray() instead');
+            return;
+        }
+
         this.data[pair.key] = pair.value;
         this.save();
     }
@@ -74,6 +79,14 @@ class Database {
             return;
 
         this.data[pair.key].push(pair.value);
+        this.save();
+    }
+
+    public clearDataArray(key: string): void {
+        if (this.data[key] == null || !Array.isArray(this.data[key]))
+            throw new Error('Mentioned key is not an aray in the dataset');
+
+        this.data[key] = [];
         this.save();
     }
 }
