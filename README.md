@@ -59,7 +59,7 @@ async function initialiseWatcher() {
         // push response body to previously defined array in database
         watcher.Database.pushDataArray({
             key: 'arrayField',
-            body
+            value: body
         });
 
         // add custom object to Database from request

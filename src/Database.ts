@@ -14,18 +14,12 @@ class Database {
      * Set data object for key
      */
     public set DataKey(pair: KeyValuePair) {
-        Database.CheckKeyValuePair(this.data, pair);
         this.data[pair.key] = pair.value;
         this.save();
     }
 
     constructor(dbPath: string) {
         this.dbPath = dbPath;
-    }
-    
-    public static CheckKeyValuePair(data: object, pair: KeyValuePair, constructor?: any): void {
-        if (constructor != null && typeof data[pair.key].constructor != constructor)
-        throw new Error(`Invalid data key ${pair.key}`);
     }
     
     public async initialise() {
@@ -76,7 +70,9 @@ class Database {
     }
     
     public pushDataArray(pair: KeyValuePair): void {
-        Database.CheckKeyValuePair(this.data, pair, Array);
+        if (this.data[pair.key] == null)
+            return;
+
         this.data[pair.key].push(pair.value);
         this.save();
     }
