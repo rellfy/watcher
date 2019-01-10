@@ -1,0 +1,28 @@
+{
+  "name": "watcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "tsc --p ./src && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rellfy/watcher.git"
+  },
+  "author": "Lorenzo Fontoura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rellfy/watcher/issues"
+  },
+  "homepage": "https://github.com/rellfy/watcher#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "@types/request": "^2.48.1",
+    "typescript": "^3.2.2"
+  }
+}

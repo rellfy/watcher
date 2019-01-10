@@ -1,3 +1,9 @@
+_test.js
+data.json
+
+# Output folder
+/out
+
 # Logs
 logs
 *.log
