@@ -32,8 +32,10 @@ async function initialiseWatcher() {
     });
 
     watcher.on('post', (error, request, body) => {
-        if (error)
-            throw error;
+        if (error) {
+            console.log(error);
+            return;
+        }
 
         try {
             body = JSON.parse(body);
